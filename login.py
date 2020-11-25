@@ -15,7 +15,8 @@ loginData = {'UserName':'0316009',
 #登录时表单提交到的地址（用开发者工具可以看到）
 login_url = do_main + 'Admin_ChkLogin_G.asp'
 
-headers = {'User-agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'}
+headers = {'User-agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+'Content-Type': 'application/x-www-form-urlencoded'}
 
 if __name__ == '__main__':
     CheckCode = crack_captcha();
