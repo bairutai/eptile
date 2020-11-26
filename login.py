@@ -4,6 +4,7 @@ import urllib.request
 import http.cookiejar
 from predict import crack_captcha
 import requests
+from bs4 import BeautifulSoup
 #sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8') #改变标准输出的默认编码
 do_main = 'http://59.49.77.231:81/'
 
@@ -55,6 +56,8 @@ if __name__ == '__main__':
     response = requests.post(url=order_url, data=post_data,headers=headers)
     
     orderListHtml = response.content.decode("gbk")
+    soup = BeautifulSoup(orderListHtml,'lxml') #html.parser是解析器，也可是lxml
+    print(soup.tr.next_sibling)
     endIndex = orderListHtml.find('条纪录')
     orderCount = 0
     if endIndex != -1:
