@@ -41,10 +41,10 @@ if __name__ == '__main__':
     #response = urllib.request.Request(login_url, headers = headers, data = post_data)
     response = requests.post(url=login_url, data=post_data,headers=headers)
     #print(response.content.decode("gbk"))
-    for key,value in response.cookies.items():  
-        cookie_value += key + '=' + value + ';'  
-    headers['Cookie'] = cookie_value
-    print(headers)
+    #for key,value in response.cookies.items():  
+        #cookie_value += key + '=' + value + ';'  
+    #headers['Cookie'] += cookie_value
+    #print(headers)
     
     if len(sys.argv) == 3:
         QueryBDate = sys.argv[1]
