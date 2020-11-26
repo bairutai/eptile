@@ -1,11 +1,11 @@
 """
 配置的config文件
 """
-
+import os
 from os.path import join
 
 # 所有图片的训练目录
-home_root = 'D://workSpace//reptile//'  # 用户的home目录
+home_root = os.path.abspath('.') + "//"
 data_root = join(home_root, 'data')  # todo 上传之前，必须删除此目录
 
 origin_pic_folder = join(data_root, 'origin')  # 原始图像目录

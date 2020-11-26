@@ -23,7 +23,7 @@ from svm_features import get_feature, convert_feature_to_vector
 
 import time
 import uuid
-def crack_captcha():
+def crack_captcha(headers):
     """
     破解验证码,完整的演示流程
     :return:
@@ -31,7 +31,7 @@ def crack_captcha():
     currentTime = str(int(time.time())*1000)
     # 向指定的url请求验证码图片
     rand_captcha_url = 'http://59.49.77.231:81/getcode.asp?t=' + currentTime
-    res = requests.get(rand_captcha_url, stream=True)
+    res = requests.get(rand_captcha_url, stream=True,headers=headers)
 
     f = io.BytesIO()
     for chunk in res.iter_content(chunk_size=1024):
