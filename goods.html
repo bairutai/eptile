@@ -1,0 +1,326 @@
+<link href="images/skin.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<style type="text/css">
+< !-- .STYLE1 {
+    font-size: 12px
+}
+
+body {
+    background-color: #eef2fb;
+}
+
+.STYLE2 {
+    color: #0000FF;
+    font-weight: bold;
+}
+
+.tr1 {
+    border-top: #cccccc 1px solid;
+    border-left: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+    border-right: #cccccc 1px solid;
+}
+
+.STYLE3 {
+    font-family: "楷体_GB2312";
+    font-size: large;
+    font-weight: bold;
+}
+
+-->
+</style>
+<script>
+    //设置网页打印的开始位置和结束位置
+function preview() {
+bdhtml=window.document.body.innerHTML;
+sprnstr="<!--startprint-->";
+eprnstr="<!--endprint-->";
+prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+window.document.body.innerHTML=prnhtml; 
+window.print();
+window.document.body.innerHTML=bdhtml; 
+ }
+</script>
+<script language="JavaScript">
+    function printpr()   //预览函数
+{
+document.all("qingkongyema").click();//打印之前去掉页眉，页脚
+document.all("dayinDiv").style.display="none"; //打印之前先隐藏不想打印输出的元素（此例中隐藏“打印”和“打印预览”两个按钮）
+var OLECMDID = 7;
+var PROMPT = 1; 
+var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH=0 HEIGHT=0 CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+document.body.insertAdjacentHTML('beforeEnd', WebBrowser); 
+WebBrowser1.ExecWB(OLECMDID, PROMPT);
+WebBrowser1.outerHTML = "";
+document.all("dayinDiv").style.display="";//打印之后将该元素显示出来（显示出“打印”和“打印预览”两个按钮，方便别人下次打印）
+}
+function printTure()   //打印函数
+{
+    document.all('qingkongyema').click();//同上
+    document.all("dayinDiv").style.display="none";//同上
+  document.all("PageDiv").style.display="none";//同上
+    window.print();
+    document.all("dayinDiv").style.display="";
+  document.all("PageDiv").style.display="";
+}
+function doPage()
+{
+    layLoading.style.display = "none";//同上
+}
+</SCRIPT>
+<script language="VBScript">
+    dim hkey_root,hkey_path,hkey_key
+hkey_root="HKEY_CURRENT_USER"
+hkey_path="\Software\Microsoft\Internet Explorer\PageSetup"
+'//设置网页打印的页眉页脚为空
+function pagesetup_null()
+on error resume next
+Set RegWsh = CreateObject("WScript.Shell")
+hkey_key="\header" 
+RegWsh.RegWrite hkey_root+hkey_path+hkey_key,""
+hkey_key="\footer"
+RegWsh.RegWrite hkey_root+hkey_path+hkey_key,""
+end function
+'//设置网页打印的页眉页脚为默认值
+function pagesetup_default()
+on error resume next
+Set RegWsh = CreateObject("WScript.Shell")
+hkey_key="\header" 
+RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"&w&b页码，&p/&P"
+hkey_key="\footer"
+RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"&u&b&d"
+end function
+</script>
+<script>
+    var  highlightcolor='#8EADD0';
+//此处clickcolor只能用win系统颜色代码才能成功,如果用#xxxxxx的代码就不行,还没搞清楚为什么:(
+var  clickcolor='#51b2f6';
+function  changeto(){
+source=event.srcElement;
+if  (source.tagName=="TR"||source.tagName=="TABLE")
+return;
+while(source.tagName!="TD")
+source=source.parentElement;
+source=source.parentElement;
+cs  =  source.children;
+//alert(cs.length);
+if  (cs[1].style.backgroundColor!=highlightcolor&&source.id!="nc"&&cs[1].style.backgroundColor!=clickcolor)
+for(i=0;i<cs.length;i++){
+  cs[i].style.backgroundColor=highlightcolor;
+}
+}
+function  changeback(){
+if  (event.fromElement.contains(event.toElement)||source.contains(event.toElement)||source.id=="nc")
+return
+if  (event.toElement!=source&&cs[1].style.backgroundColor!=clickcolor)
+//source.style.backgroundColor=originalcolor
+for(i=0;i<cs.length;i++){
+  cs[i].style.backgroundColor="";
+}
+}
+function  clickto(){
+source=event.srcElement;
+if  (source.tagName=="TR"||source.tagName=="TABLE")
+return;
+while(source.tagName!="TD")
+source=source.parentElement;
+source=source.parentElement;
+cs  =  source.children;
+//alert(cs.length);
+if  (cs[1].style.backgroundColor!=clickcolor&&source.id!="nc")
+for(i=0;i<cs.length;i++){
+  cs[i].style.backgroundColor=clickcolor;
+}
+else
+for(i=0;i<cs.length;i++){
+  cs[i].style.backgroundColor="";
+}
+}
+</script>
+
+<body>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="17" height="29" valign="top" background="images/mail_leftbg.gif"><img src="images/left-top-right.gif" width="17" height="29" /></td>
+            <td valign="top" background="images/content-bg.gif">
+                <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
+                    <tr>
+                        <td height="31"></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="16" valign="top" background="images/mail_rightbg.gif"><img src="images/nav-right-bg.gif" width="16" height="29" /></td>
+        </tr>
+        <tr>
+            <td valign="middle" background="images/mail_leftbg.gif">&nbsp;</td>
+            <td valign="top" bgcolor="#F7F8F9">
+                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="24" colspan="3" class="STYLE1">
+                            <div align="center" class="STYLE3">山西国大万民药房连锁有限公司订单</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="9%" height="24" class="STYLE1"></td>
+                        <td width="81%" class="STYLE1">
+                            <hr>
+                        </td>
+                        <td height="24" class="STYLE1"></td>
+                    </tr>
+                    <tr>
+                        <td height="24" colspan="2" class="STYLE1">※供货商编码：<span class="STYLE2">
+                                03160
+                            </span> 　※供货商名称： 　※业务员编码：<span class="STYLE2">
+                                0316009</span>　　※业务员姓名：<span class="STYLE2">樊宏波</span></td>
+                        <td class="STYLE1"></td>
+                    </tr>
+                    <tr>
+                        <td height="24" colspan="2" class="STYLE1"> ※订单号：<span class="STYLE2">
+                                2011000445</span>
+                            ※制单日期：<span class="STYLE2">20201102</span>
+                            ※失效日期：<span class="STYLE2">20201109</span> </td>
+                        <td width="10%" class="STYLE1">
+                            <div align="right">共计2种商品</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" valign="top">
+                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#4275AE" onMouseOver="changeto()" onmouseout="changeback()" class="tr1">
+                                <tr>
+                                    <td class="tr1" width="4%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center" class="STYLE1">序号</div>
+                                    </td>
+                                    <td class="tr1" width="8%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">商品编码</span></div>
+                                    </td>
+                                    <td class="tr1" width="8%" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center" class="STYLE1">供应商编码</div>
+                                    </td>
+                                    <td class="tr1" width="20%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">商品名称</span></div>
+                                    </td>
+                                    <td class="tr1" width="10%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">单位</span></div>
+                                    </td>
+                                    <td class="tr1" width="8%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">规格</span></div>
+                                    </td>
+                                    <td class="tr1" width="15%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">生产商</span></div>
+                                    </td>
+                                    <td class="tr1" width="15%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">国药准字</span></div>
+                                    </td>
+                                    <td class="tr1" width="10%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">订单数量</span></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">1</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF"><span class="STYLE1">　12900211</span></td>
+                                    <td class="tr1" bgcolor="#FFFFFF"><span class="STYLE1"></span></td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">利奈唑胺葡萄糖注射液（天礼）</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">　瓶T</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">100ml</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">(JY)正大天晴药业集团股份有限</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF"><span class="STYLE1">国药准字H20163338</span></td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="right"><span class="STYLE1">　<strong>30.00</strong></span></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="center"><span class="STYLE1">2</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF"><span class="STYLE1">　10100116</span></td>
+                                    <td class="tr1" bgcolor="#FFFFFF"><span class="STYLE1"></span></td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">头孢泊肟酯分散片</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">　盒</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">0.1g*6片</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="left"><span class="STYLE1">(凉)江苏正大清江制药有限公司</span></div>
+                                    </td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF"><span class="STYLE1">国药准字H20041805</span></td>
+                                    <td class="tr1" height="27" bgcolor="#FFFFFF">
+                                        <div align="right"><span class="STYLE1">　<strong>200.00</strong></span></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table width="100%" height="20" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="43%" height="29">
+                                        <!--
+        <span class="STYLE1">共2条纪录，当前第1页/共1页，每页999条纪录</span>
+        --><span class="STYLE1">共2条纪录</span>
+                                    </td>
+                                    <td width="20%">
+                                        <DIV align="center" id="dayinDiv" name="dayinDiv">
+                                            <a href="#" onClick="printTure();">打印</a>
+                                            <a href="#" onClick="printpr();">打印预览</a>
+                                            <input type="hidden" name="qingkongyema" id="qingkongyema" class="tab" value="清空页码" onClick="pagesetup_null()">
+                                            <input type="hidden" class="tab" value="恢复页码" onClick="pagesetup_default()">
+                                        </DIV>
+                                    </td>
+                                    <td width="37%">
+                                        <div align="right" id="PageDiv" name="PageDiv">
+                                            <table width="252" height="20" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td width="62" height="22" valign="middle">
+                                                        <div align="right"><img src="images/first.gif" alt="首页" width="37" height="15" /></div>
+                                                    </td>
+                                                    <td width="50" height="22" valign="middle">
+                                                        <div align="right"><img src="images/back.gif" alt="上一页" width="43" height="15" /></div>
+                                                    </td>
+                                                    <td width="54" height="22" valign="middle">
+                                                        <div align="right"><img src="images/next.gif" alt="下一页" width="43" height="15" /></div>
+                                                    </td>
+                                                    <td width="49" height="22" valign="middle">
+                                                        <div align="right"><img src="images/last.gif" alt="尾页" width="37" height="15" /></div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- <input   type="button" onClick="language='JavaScript'; window.print()" value='打印订单' style="width:80; background:#eeeeee"> -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" valign="top">
+                            <!--JavaScript部分-->
+                            <!--HTML部分-->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td background="images/mail_rightbg.gif">&nbsp;</td>
+        </tr>
+        <tr>
+            <td valign="bottom" background="images/mail_leftbg.gif"><img src="images/buttom_left2.gif" width="17" height="17" /></td>
+            <td background="images/buttom_bgs.gif"><img src="images/buttom_bgs.gif" width="17" height="17"></td>
+            <td valign="bottom" background="images/mail_rightbg.gif"><img src="images/buttom_right2.gif" width="16" height="17" /></td>
+        </tr>
+    </table>
+</body>
